@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import DatePicker from 'react-datepicker';
+import React, { Component } from "react";
+import axios from "axios";
+import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class CreateExercise extends Component {
@@ -14,52 +14,52 @@ export default class CreateExercise extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: '',
-      description: '',
+      username: "",
+      description: "",
       duration: 0,
       date: new Date(),
       users: []
-    }
+    };
   }
 
   componentDidMount() {
-    axios.get('/users/')
+    axios.get("/users/")
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
             users: response.data.map(user => user.username),
             username: response.data[0].username
-          })
+          });
         }
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
 
   }
 
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
-    })
+    });
   }
 
   onChangeDescription(e) {
     this.setState({
       description: e.target.value
-    })
+    });
   }
 
   onChangeDuration(e) {
     this.setState({
       duration: e.target.value
-    })
+    });
   }
 
   onChangeDate(date) {
     this.setState({
       date: date
-    })
+    });
   }
 
   onSubmit(e) {
@@ -70,14 +70,14 @@ export default class CreateExercise extends Component {
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
-    }
+    };
 
     console.log(exercise);
 
-    axios.post('/exercises/add', exercise)
+    axios.post("/exercises/add", exercise)
       .then(res => console.log(res.data));
 
-    window.location = '/';
+    window.location = "/";
   }
 
   render() {
@@ -135,6 +135,6 @@ export default class CreateExercise extends Component {
         </div>
       </form>
     </div>
-    )
+    );
   }
 }

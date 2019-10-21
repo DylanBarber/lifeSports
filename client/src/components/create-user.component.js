@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
 export default class CreateUser extends Component {
   constructor(props) {
@@ -9,14 +9,14 @@ export default class CreateUser extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: ''
-    }
+      username: ""
+    };
   }
 
   onChangeUsername(e) {
     this.setState({
       username: e.target.value
-    })
+    });
   }
 
   onSubmit(e) {
@@ -24,16 +24,16 @@ export default class CreateUser extends Component {
 
     const user = {
       username: this.state.username
-    }
+    };
 
     console.log(user);
 
-    axios.post('/users/add', user)
+    axios.post("/users/add", user)
       .then(res => console.log(res.data));
 
     this.setState({
-      username: ''
-    })
+      username: ""
+    });
   }
 
   render() {
@@ -55,6 +55,6 @@ export default class CreateUser extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
