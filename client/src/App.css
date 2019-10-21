@@ -23,6 +23,25 @@
   color: #61dafb;
 }
 
+.container {
+  background-color: whitesmoke;
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.loginContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loginContainer button {
+  margin: 15px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
