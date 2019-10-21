@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
+    "eslint": "^6.5.1",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",
     "react-dom": "^16.8.6",
@@ -16,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ./src/App.js; eslint ./src/index.js; eslint ./src/components/*.js",
+    "lintFix": "eslint --fix ./src/App.js; eslint --fix ./src/index.js; eslint --fix ./src/components/*.js"
   },
   "eslintConfig": {
     "extends": "react-app"
