@@ -3,7 +3,7 @@
 
 ### About Us
 
-My name is Connor Nicholson. I am a member on team New York, participating in the Road to Hire Hackaton.
+We are team New York at R2H, creating this website for the non-profit LifeSports in Charlotte, NC. 
 
 ### About this Application
 
