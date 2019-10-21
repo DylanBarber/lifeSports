@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install ESLint (Back End)
+      run: npm i eslint
+    - name: Lint Check (Back End)
+      run: npm run lint
+    - name: Move to client
+      run: cd ./client
+    - name: Install ESLint (Client)
+      run: npm i eslint
+    - name: Lint Check (Front End)
+      run: npm run lint
