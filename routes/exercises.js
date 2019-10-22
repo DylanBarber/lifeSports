@@ -4,13 +4,13 @@
 ///////////////////////////////////////////
 
 const router = require("express").Router();             // Requires the express Router() method
-let Exercise = require("../models/exercise.model");     // Requires a custom .js file
+const Exercise = require("../models/exercise.model");     // Requires a custom .js file
+
 
 // Your Challenge: Make five routes. Each will use mongojs methods
 // to interact with your mongoDB database, as instructed below.
 // You will be using express Router and Mongoose
 // -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/
-
 
 // 1. get all exercise logs on record
 // GET: /
