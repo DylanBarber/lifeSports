@@ -8,6 +8,7 @@ import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import Login from "./components/Login";
+import ProtectedRouteTest from "./components/ProtectedRouteTest";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/create" component={CreateExercise} />
       <Route path="/user" component={CreateUser} />
       <Route path="/login" component={Login} />
+      <Route path="/routeTest" component={ProtectedRouteTest} />
     </Router>
   );
 }
