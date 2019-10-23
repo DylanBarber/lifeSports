@@ -63,7 +63,7 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
+        <h3 className="exercises">Logged Exercises</h3>
         <input className="searchInput" type="text" placeholder="Search for a name..." />
         <button type="submit">Search</button>
         <table className="table">
