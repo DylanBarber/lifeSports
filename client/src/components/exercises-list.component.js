@@ -65,7 +65,7 @@ export default class ExercisesList extends Component {
 // Currently working on this search function
 findExerciseUser(username) {
   axios.get("/exercises/find/" + username)
-    .then(response => { console.log(response.data); })
+    .then(response => { console.log(response.data); });
 
   this.setState({
     exercises: this.state.exercises.filter(el => el.username === username)
@@ -83,7 +83,7 @@ findExerciseUser(username) {
   onSubmit = (e) => {
     e.preventDefault();
 
-    const user = this.state.username
+    const user = this.state.username;
 
     console.log(user);
 
@@ -91,9 +91,9 @@ findExerciseUser(username) {
       username: ""
     });
 
-    this.findExerciseUser(user)
+    this.findExerciseUser(user);
 
-    console.log(`The username is: ${this.state.username}`)
+    console.log(`The username is: ${this.state.username}`);
   }
 
   render() {

@@ -17,7 +17,7 @@ const Exercise = require("../models/exercise.model");     // Requires a custom .
 // ========================================
 router.get("/", async (req, res) => {                       // GET method used to fetch all exercises
   try {
-    const exercise = await Exercise.find().sort({date: 'desc'})   // Async/Await is used here to give the server time to fetch the info
+    const exercise = await Exercise.find().sort({date: "desc"});   // Async/Await is used here to give the server time to fetch the info
     res.send(exercise);                                 // Upon success, send exercises
   }
   catch {
@@ -124,7 +124,7 @@ router.post("/update/:id", async (req, res) => {        // POST method used to f
 // ========================================
 router.get("/find/:username", async (req, res) => {                            // GET method to find exercise by 'id'
   try {
-    const exercise = await Exercise.find({ username: req.params.username }).sort({date: 'descending'})
+    const exercise = await Exercise.find({ username: req.params.username }).sort({date: "descending"});
     res.send(exercise);                                          // Send the requested exercise
   }
   catch {
