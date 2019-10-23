@@ -119,5 +119,35 @@ router.post("/update/:id", async (req, res) => {        // POST method used to f
   }
 });
 
+// 6. Purpose: send back the requested results with the same name
+// GET: /find/:username
+// ========================================
+router.get("/find/:username", async (req, res) => {                            // GET method to find exercise by 'id'
+  try {
+    const exercise = await Exercise.find({ username: req.params.username });
+    res.send(exercise);                                          // Send the requested exercise
+  }
+  catch {
+      res.status(404),                                        // Send a status code of 404, meaning Not Found
+      res.send("Exercise Routine was not found");              // Send a custom string message
+  }
+});
+
+// 6. Purpose: send back the requested results with the same date
+// GET: /find/:date
+// ========================================
+router.get("/date/:date", async (req, res) => {                            // GET method to find exercise by 'id'
+  try {
+    const exercise = await Exercise.find({ date: req.params.date });
+    res.send(exercise);                                          // Send the requested exercise
+  }
+  catch {
+      res.status(404),                                        // Send a status code of 404, meaning Not Found
+      res.send("Exercise Routine was not found");              // Send a custom string message
+  }
+});
+
+
+
 // export router module
 module.exports = router;        // export the 'router' module
