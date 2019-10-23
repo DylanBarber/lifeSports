@@ -20,7 +20,9 @@ export default class ExercisesList extends Component {
 
     this.deleteExercise = this.deleteExercise.bind(this);
 
-    this.state = {exercises: []};
+    this.state = {
+      exercises: []
+    };
   }
 
   componentDidMount() {
@@ -42,6 +44,16 @@ export default class ExercisesList extends Component {
     });
   }
 
+  // Currently working on this search function
+  findExerciseUser(username) {
+    axios.get("/exercises/find/"+username)
+      .then(response => { console.log(response.data); });
+
+    this.setState({
+      exercises: this.state.exercises.filter(el => el.username !== username)
+    });
+  }
+
   exerciseList() {
     return this.state.exercises.map(currentexercise => {
       return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
@@ -52,6 +64,8 @@ export default class ExercisesList extends Component {
     return (
       <div>
         <h3>Logged Exercises</h3>
+        <input className="searchInput" type="text" placeholder="Search for a name..." />
+        <button type="submit">Search</button>
         <table className="table">
           <thead className="thead-light">
             <tr>
