@@ -2,6 +2,7 @@ import React from "react";
 
 
 const Login = () => {
+  const port = process.env.PORT || 5000;
   const state = {
     username: "",
     password: ""
@@ -12,8 +13,12 @@ const Login = () => {
   const passwordOnChange = e => {
     console.log(e);
   };
-  const loginHandler = () => {
-    console.log("login button");
+  const loginHandler = async () => {
+    const fetchData = await fetch(`http://localhost:${port}/api/login`, {
+      method: "POST"
+    });
+    const jsonData = await fetchData.json();
+    localStorage.setItem("token", jsonData.token);
   };
 
   return (
