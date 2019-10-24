@@ -99,12 +99,9 @@ findExerciseUser(username) {
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
-        <form onSubmit={this.onSubmit}>
-          <input className="searchInput" type="text" required value={this.state.username} onChange={this.onChangeUsername} placeholder="Search for a name..." />
-          <input type="submit" value="Find User" />
-          <input type="button" value="All" onClick={this.getAllUsers} />
-        </form>
+        <h3 className="exercises">Logged Exercises</h3>
+        <input className="searchInput" type="text" placeholder="Search for a name..." />
+        <button type="submit">Search</button>
         <table className="table">
           <thead className="thead-light">
             <tr>
