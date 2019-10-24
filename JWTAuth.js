@@ -27,12 +27,6 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-router.post("/posts", verifyToken, (req, res) => {
-    res.json({
-      message: "Post created",
-    });
-});
-
 router.post("/login", async (req, res) => {
   let adminFound = false;
   let adminData = {};
