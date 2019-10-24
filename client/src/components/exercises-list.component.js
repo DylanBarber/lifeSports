@@ -20,10 +20,24 @@ export default class ExercisesList extends Component {
 
     this.deleteExercise = this.deleteExercise.bind(this);
 
-    this.state = {exercises: []};
+    this.state = {
+      exercises: [],
+      username: ""
+    };
   }
 
   componentDidMount() {
+    axios.get("/exercises/")
+      .then(response => {
+        this.setState({ exercises: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  // Gets all Users - Used for 'All' button in form
+  getAllUsers = () => {
     axios.get("/exercises/")
       .then(response => {
         this.setState({ exercises: response.data });
@@ -48,10 +62,49 @@ export default class ExercisesList extends Component {
     });
   }
 
+// Currently working on this search function
+findExerciseUser(username) {
+  axios.get("/exercises/find/" + username)
+    .then(response => { console.log(response.data); });
+
+  this.setState({
+    exercises: this.state.exercises.filter(el => el.username === username)
+  });
+}
+
+  // onChangeUsername function keeps track of name entered in search
+  onChangeUsername = (e) => {
+    this.setState({
+      username: e.target.value
+    });
+  }
+
+  // onSubmit function for finding a specific user
+  submitSearch = (e) => {
+    e.preventDefault();
+
+    const user = this.state.username;
+
+    console.log(user);
+
+    this.setState({
+      username: ""
+    });
+
+    this.findExerciseUser(user);
+
+    console.log(`The username is: ${this.state.username}`);
+  }
+
   render() {
     return (
       <div>
-        <h3>Logged Exercises</h3>
+        <h3 className="exercises">Logged Exercises</h3>
+        <form onSubmit={this.submitSearch}>
+          <input className="searchInput" type="text" placeholder="Search for a name..." onChange={this.onChangeUsername}/>
+          <button type="submit">Search</button>
+          <input type="button" value="All" onClick={this.getAllUsers} />
+        </form>
         <table className="table">
           <thead className="thead-light">
             <tr>

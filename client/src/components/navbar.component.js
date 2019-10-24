@@ -23,7 +23,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
-        <Link to="/" className="navbar-brand">LifeSports</Link>
+        <Link to="/" className="navbar-brand"><img src="https://lifesports.org/wp-content/uploads/cropped-lifesports-logo-final-white.png"></img></Link>
         <div className="collpase navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">

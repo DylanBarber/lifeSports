@@ -17,7 +17,7 @@ const Exercise = require("../models/exercise.model");     // Requires a custom .
 // ========================================
 router.get("/", async (req, res) => {                       // GET method used to fetch all exercises
   try {
-    const exercise = await Exercise.find();             // Async/Await is used here to give the server time to fetch the required information
+    const exercise = await Exercise.find().sort({date: "desc"});   // Async/Await is used here to give the server time to fetch the info
     res.send(exercise);                                 // Upon success, send exercises
   }
   catch {
@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {                       // GET method used t
 router.post("/add", async (req, res) => {               // POST method to add a new user
   try {
     let exercise = new Exercise({
-      username: req.body.username,                // The 'username, description, duration, and date' will be the input of the user on the actual application.
+      username: req.body.username,      // The 'username, description, duration, and date' will be the input of the user on the application.
       description: req.body.description,
       duration: req.body.duration,
       date: req.body.date
@@ -82,7 +82,7 @@ router.delete("/:id", async (req, res) => {     // DELETE method used to find ex
   catch {
     if (error) {
       throw error,
-      res.status(404),                            // Send a status code of 404, meaning Not Found
+      res.status(404),                             // Send a status code of 404, meaning Not Found
       res.send("Exercise Routine was not found");  // Send a custom string method
     }
   }
@@ -119,5 +119,35 @@ router.post("/update/:id", async (req, res) => {        // POST method used to f
   }
 });
 
+// 6. Purpose: send back the requested results with the same name
+// GET: /find/:username
+// ========================================
+router.get("/find/:username", async (req, res) => {                            // GET method to find exercise by 'id'
+  try {
+    const exercise = await Exercise.find({ username: req.params.username }).sort({date: "descending"});
+    res.send(exercise);                                          // Send the requested exercise
+  }
+  catch {
+      res.status(404),                                        // Send a status code of 404, meaning Not Found
+      res.send("Exercise Routine was not found");              // Send a custom string message
+  }
+});
+
 // export router module
 module.exports = router;        // export the 'router' module
+
+// Code below is not currently used
+
+// 6. Purpose: send back the requested results with the same date
+// GET: /find/:date
+// ========================================
+// router.get("/date/:date", async (req, res) => {                            // GET method to find exercise by 'id'
+//   try {
+//     const exercise = await Exercise.find({ date: req.params.date });
+//     res.send(exercise);                                          // Send the requested exercise
+//   }
+//   catch {
+//       res.status(404),                                        // Send a status code of 404, meaning Not Found
+//       res.send("Exercise Routine was not found");              // Send a custom string message
+//   }
+// });
