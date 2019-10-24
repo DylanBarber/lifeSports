@@ -21,11 +21,23 @@ export default class ExercisesList extends Component {
     this.deleteExercise = this.deleteExercise.bind(this);
 
     this.state = {
-      exercises: []
+      exercises: [],
+      username: ""
     };
   }
 
   componentDidMount() {
+    axios.get("/exercises/")
+      .then(response => {
+        this.setState({ exercises: response.data });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  // Gets all Users - Used for 'All' button in form
+  getAllUsers = () => {
     axios.get("/exercises/")
       .then(response => {
         this.setState({ exercises: response.data });
@@ -44,20 +56,44 @@ export default class ExercisesList extends Component {
     });
   }
 
-  // Currently working on this search function
-  findExerciseUser(username) {
-    axios.get("/exercises/find/"+username)
-      .then(response => { console.log(response.data); });
-
-    this.setState({
-      exercises: this.state.exercises.filter(el => el.username !== username)
-    });
-  }
-
   exerciseList() {
     return this.state.exercises.map(currentexercise => {
       return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id}/>;
     });
+  }
+
+// Currently working on this search function
+findExerciseUser(username) {
+  axios.get("/exercises/find/" + username)
+    .then(response => { console.log(response.data); });
+
+  this.setState({
+    exercises: this.state.exercises.filter(el => el.username === username)
+  });
+}
+
+  // onChangeUsername function keeps track of name entered in search
+  onChangeUsername = (e) => {
+    this.setState({
+      username: e.target.value
+    });
+  }
+
+  // onSubmit function for finding a specific user
+  onSubmit = (e) => {
+    e.preventDefault();
+
+    const user = this.state.username;
+
+    console.log(user);
+
+    this.setState({
+      username: ""
+    });
+
+    this.findExerciseUser(user);
+
+    console.log(`The username is: ${this.state.username}`);
   }
 
   render() {
