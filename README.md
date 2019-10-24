@@ -7,6 +7,10 @@ We are team New York at R2H, creating this website for the non-profit LifeSports
 
 ### About this Application
 
+This repo uses CI with Github Actions. You can view the CI tests at ./github/workflows/main.yml
+
+This repo also uses CD with Heroku. You can view the deployment of this app at https://lifesportswebsite.herokuapp.com
+
 This repo contains a MERN (MongoDB, Express, React, NodeJS) application that tracks users and their exercise routines.
 
 To see this application in action, check out it out on Heroku: https://lifesportswebsite.herokuapp.com/
