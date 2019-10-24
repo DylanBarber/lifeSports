@@ -88,6 +88,11 @@ app.post("/api/posts", verifyToken, (req, res) => {
 });
 
 app.post("/api/login", (req, res) => {
+  // const lookupAdmin = new Admin({username: req.body.username, password: req.body.password}); 
+  Admin.find({username: req.body.username, password: req.body.password}, (err, data) => {
+    if (err) return console.log(err); 
+    return console.log(data);
+  });
   console.log(req.body); 
   //Mock user (INSERT DB TEST HERE)
   const user = {
