@@ -6,6 +6,7 @@ class Login extends React.Component {
   state = {
     username: "",
     password: "",
+    adminLoggedIn: null
   };
   usernameOnChange = e => {
     this.setState({ username: e.target.value });
@@ -35,6 +36,12 @@ class Login extends React.Component {
 
   };
   render() {
+    let errorOrRedirect = "";
+    if (this.state.adminLoggedIn){
+      errorOrRedirect = <Redirect to="/" />;
+    } else if (this.state.adminLoggedIn === false){
+      errorOrRedirect = <p>Incorrect Username or Password</p>;
+    }
     return (
       <div className="container">
         <div className="loginContainer">
@@ -43,8 +50,9 @@ class Login extends React.Component {
           <h2>Password</h2>
           <input onChange={this.passwordOnChange} />
           <button onClick={this.loginHandler}>Login</button>
-          {this.state.adminLoggedIn ? <Redirect to="/" /> :
-          <p>Incorrect Username or Password</p>}
+          {errorOrRedirect}
+
+
         </div>
       </div>
     );

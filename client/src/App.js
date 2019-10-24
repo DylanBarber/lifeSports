@@ -8,7 +8,6 @@ import EditExercise from "./components/edit-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import CreateUser from "./components/create-user.component";
 import Login from "./components/Login";
-import ProtectedRouteTest from "./components/ProtectedRouteTest";
 
 function App() {
   return (
