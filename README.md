@@ -11,6 +11,8 @@ This repo uses CI with Github Actions. You can view the CI tests at ./github/wor
 
 This repo also uses CD with Heroku. You can view the deployment of this app at https://lifesportswebsite.herokuapp.com
 
+FDD and ERD are in ./work
+
 This repo contains a MERN (MongoDB, Express, React, NodeJS) application that tracks users and their exercise routines.
 
 To see this application in action, check out it out on Heroku: https://lifesportswebsite.herokuapp.com/
