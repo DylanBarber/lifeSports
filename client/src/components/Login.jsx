@@ -1,37 +1,58 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
-
-const Login = () => {
-  const port = process.env.PORT || 5000;
-  const state = {
+class Login extends React.Component {
+  port = process.env.PORT || 5000;
+  state = {
     username: "",
-    password: ""
+    password: "",
+    token: "",
+    loginContent: ""
   };
-  const usernameOnChange = e => {
-    console.log(e);
+  componentDidMount = () => {
+    const token = localStorage.getItem("token");
+    if (token === null) {
+      this.setState({loginContent: (
+        <>
+          <h2>Username</h2>
+          <input onChange={this.usernameOnChange} />
+          <h2>Password</h2>
+          <input onChange={this.passwordOnChange} />
+          <button onClick={this.loginHandler}>Login</button>
+        </>
+      )});
+    } else {
+      this.setState({loginContent: (
+        <h2>You are already logged in</h2>
+      )});
+    }
+  }
+  usernameOnChange = e => {
+    this.setState({username: e.target.value});
   };
-  const passwordOnChange = e => {
-    console.log(e);
+  passwordOnChange = e => {
+    this.setState({password: e.target.value});
   };
-  const loginHandler = async () => {
-    const fetchData = await fetch(`http://localhost:${port}/api/login`, {
+  loginHandler = async () => {
+    const fetchData = await fetch(`http://localhost:${this.port}/api/login`, {
       method: "POST"
     });
     const jsonData = await fetchData.json();
-    localStorage.setItem("token", jsonData.token);
+    if (jsonData.token !== undefined) {
+      localStorage.setItem("token", jsonData.token);
+      this.setState({ loggedIn: true });
+    }
   };
-
-  return (
-    <div className="container">
-      <div className="loginContainer">
-        <h2>Username</h2>
-        <input onChange={usernameOnChange} />
-        <h2>Password</h2>
-        <input onChange={passwordOnChange} />
-        <button onClick={loginHandler}>Login</button>
-      </div>
-    </div>
-  );
+  render() {
+    return (
+      this.state.loggedIn ? <Redirect to="/routetest" /> :
+        <div className="container">
+          <div className="loginContainer">
+            {this.state.loginContent}
+          </div>
+        </div>
+    );
+  }
 };
 
 export default Login; 
