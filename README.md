@@ -40,12 +40,19 @@ Below are instructions on how to run the application using the scripts (assuming
 **NOTE:** These commands must be executed in your Terminal:
 
 ```js
+npm i  - (this command will install all dependencies)
+
 npm start       - (this command checks if the enviroment is in production or development, then it will start the React App and the Express server simultaneously)
 
 npm start:prod      - (this command will run the application in a production enviroment)
 
 npm start:dev       - (this command will run the application in a development enviroment)
 ```
+
+### Creating, updating, and deleted exercies / users
+All of these actions require you to log in. The current admin account is:
+Username: admin
+Password: admin
 
 #### Challenge Instructions
 
