@@ -6,6 +6,11 @@
 const router = require("express").Router();             // Requires the express Router() method
 const Exercise = require("../models/exercise.model");     // Requires a custom .js file
 const verifyToken = require("../JWTAuth").verifyToken;
+const bodyParser = require("body-parser");
+
+router.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 
 // Your Challenge: Make five routes. Each will use mongojs methods
@@ -41,12 +46,15 @@ router.post("/add", verifyToken, async (req, res) => {               // POST met
       duration: req.body.duration,
       date: req.body.date
     });
-    exercise = await exercise.save();               // Using the .save() method to save the new 'exercise'
+    exercise = await exercise.save((err, data) => {
+      if (err) console.log(req.body);
+    });               // Using the .save() method to save the new 'exercise'
     res.send(exercise);                              // Send the new exercise
   }
-  catch {
+  catch (error) {
     if (error) {
       throw error,
+      console.log(req.body);
       res.status(400),                           // Sends a status code of 400, meaning Bad Request
       res.send("Exercise Routing was not added due to a Bad Request");     // Sends a custom string message
     }
@@ -94,7 +102,7 @@ router.delete("/:id", verifyToken, async (req, res) => {     // DELETE method us
 // with information sent by client on req body
 // POST: /update/:id
 // ========================================
-router.post("/update/:id", verifyToken, async (req, res) => {        // POST method used to find exercise by 'id' and update
+router.put("/update/:id", verifyToken, async (req, res) => {        // POST method used to find exercise by 'id' and update
   try {
     let exercise = await Exercise.updateOne(        // Using the updateOne method to update ONLY one exercise
       {

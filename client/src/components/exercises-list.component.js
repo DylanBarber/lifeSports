@@ -47,13 +47,21 @@ export default class ExercisesList extends Component {
       });
   }
 
-  deleteExercise(id) {
-    axios.delete("/exercises/"+id)
-      .then(response => { console.log(response.data);});
-
-    this.setState({
-      exercises: this.state.exercises.filter(el => el._id !== id)
+  deleteExercise = async (id) => {
+    const token = localStorage.getItem("token");
+    const makeFetch = await fetch(`/exercises/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
     });
+    const fetchData = await makeFetch.json();
+     console.log(fetchData);
+
+    this.getAllUsers();
+    // this.setState({
+    //   exercises: this.state.exercises.filter(el => el._id !== id)
+    // });
   }
 
   exerciseList() {

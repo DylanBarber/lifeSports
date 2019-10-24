@@ -5,6 +5,7 @@
 
 const router = require("express").Router();     // requires the express router() method
 let User = require("../models/user.model");     // requires a custom .js file
+const verifyToken = require("../JWTAuth").verifyToken;
 
 // Your Challenge: Make rwo routes. Each will use mongojs methods
 // to interact with your mongoDB database, as instructed below.
@@ -33,13 +34,13 @@ router.get("/", async (req, res) => {           // GET method used to fetch all 
 // 2. add a new user
 // POST /add
 // ========================================
-router.post("/add", async (req, res) => {                       // POST method to add a new user
+router.post("/add", verifyToken, async (req, res) => {                       // POST method to add a new user
   try {
     let user = new User({ username: req.body.username });   // The 'username' will be the input of the user on the actual application.
     user = await user.save();                               // Using the .save() method to save the new 'user'
     res.send(user);                                          // Send the new user
   }
-  catch {
+  catch (error) {
     if (error) {
       throw error,
       res.status(400),                                    // Sends a status code of 400, meaning Bad Request
