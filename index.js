@@ -19,7 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({
   extended: true
-})); 
+}));
 
 // Serve up static assets (heroku)
 if (process.env.NODE_ENV === "production") {
@@ -50,7 +50,7 @@ app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 
 //TESTING
-const adminSchema = new mongoose.Schema({name: "string", size: "string"});
+const adminSchema = new mongoose.Schema({ name: "string", size: "string" });
 const Admin = new mongoose.model("admins", adminSchema);
 
 app.get("/test", (req, res) => {
@@ -84,26 +84,34 @@ app.post("/api/posts", verifyToken, (req, res) => {
       authData
     });
   });
-
 });
 
 app.post("/api/login", (req, res) => {
-  // const lookupAdmin = new Admin({username: req.body.username, password: req.body.password}); 
-  Admin.find({username: req.body.username, password: req.body.password}, (err, data) => {
-    if (err) return console.log(err); 
-    return console.log(data);
+  let adminFound = false;
+  let adminData = {};
+  console.log(req.body);
+  Admin.find({ username: req.body.username, password: req.body.password }, (err, data) => {
+    console.log(data);
+    if (err) return console.log(err);
+    if (data.length !== 0) {
+      console.log(2);
+      adminFound = true;
+      adminData = { data };
+      console.log(data);
+    } else {
+      res.json({adminFound});
+    }
+    if (adminFound === true) {
+      console.log(3);
+      jwt.sign({ adminData }, process.env.JWT_KEY, (err, token) => {
+        console.log(4);
+        return res.json({ token });
+      });
+    };
   });
-  console.log(req.body); 
-  //Mock user (INSERT DB TEST HERE)
-  const user = {
-    id: 1,
-    username: "test",
-    password: "test"
-  };
 
-  jwt.sign({ user }, process.env.JWT_KEY, (err, token) => {
-    res.json({ token });
-  });
+  // res.end(); 
+
 });
 
 

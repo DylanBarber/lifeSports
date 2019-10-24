@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 
 class Login extends React.Component {
@@ -8,10 +9,10 @@ class Login extends React.Component {
     password: ""
   };
   usernameOnChange = e => {
-    this.setState({username: e.target.value});
+    this.setState({ username: e.target.value });
   };
   passwordOnChange = e => {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   };
   loginHandler = async () => {
     const fetchData = await fetch(`http://localhost:${this.port}/api/login`, {
@@ -25,7 +26,14 @@ class Login extends React.Component {
       })
     });
     const jsonData = await fetchData.json();
-    localStorage.setItem("token", jsonData.token);
+    if (jsonData.token) {
+      localStorage.setItem("token", jsonData.token);
+      this.setState({ adminLoggedIn: true });
+    } else {
+      this.setState({ adminLoggedIn: false });
+    }
+
+
   };
   render() {
     return (
@@ -36,6 +44,8 @@ class Login extends React.Component {
           <h2>Password</h2>
           <input onChange={this.passwordOnChange} />
           <button onClick={this.loginHandler}>Login</button>
+          {this.state.adminLoggedIn ? <Redirect to="/" /> :
+          <p>Incorrect Username or Password</p>}
         </div>
       </div>
     );
