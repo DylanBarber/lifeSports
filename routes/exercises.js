@@ -5,6 +5,7 @@
 
 const router = require("express").Router();             // Requires the express Router() method
 const Exercise = require("../models/exercise.model");     // Requires a custom .js file
+const verifyToken = require("../JWTAuth").verifyToken;
 
 
 // Your Challenge: Make five routes. Each will use mongojs methods
@@ -32,7 +33,7 @@ router.get("/", async (req, res) => {                       // GET method used t
 // 2. add a new exercise log
 // POST: /add
 // ========================================
-router.post("/add", async (req, res) => {               // POST method to add a new user
+router.post("/add", verifyToken, async (req, res) => {               // POST method to add a new user
   try {
     let exercise = new Exercise({
       username: req.body.username,      // The 'username, description, duration, and date' will be the input of the user on the application.
@@ -61,7 +62,7 @@ router.get("/:id", async (req, res) => {                            // GET metho
     const exercise = await Exercise.findById(req.params.id);     // 'req.params.id' is used to take the user input for 'id'
     res.send(exercise);                                          // Send the requested exercise
   }
-  catch {
+  catch (error) {
     if (error) {
       throw error,
       res.status(404),                                        // Send a status code of 404, meaning Not Found
@@ -74,7 +75,7 @@ router.get("/:id", async (req, res) => {                            // GET metho
 // 4. delete a specfic exercise log
 // DELETE: /:id
 // ========================================
-router.delete("/:id", async (req, res) => {     // DELETE method used to find exercise by 'id' and delete
+router.delete("/:id", verifyToken, async (req, res) => {     // DELETE method used to find exercise by 'id' and delete
   try {
     const exercise = await Exercise.findByIdAndDelete(req.params.id);    // using the findByIdAndDelete method to find the requested exercise and delete it
     res.send(exercise);                      // Send the result
@@ -93,7 +94,7 @@ router.delete("/:id", async (req, res) => {     // DELETE method used to find ex
 // with information sent by client on req body
 // POST: /update/:id
 // ========================================
-router.post("/update/:id", async (req, res) => {        // POST method used to find exercise by 'id' and update
+router.post("/update/:id", verifyToken, async (req, res) => {        // POST method used to find exercise by 'id' and update
   try {
     let exercise = await Exercise.updateOne(        // Using the updateOne method to update ONLY one exercise
       {

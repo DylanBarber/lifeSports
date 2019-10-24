@@ -45,77 +45,11 @@ connection.once("open", () => {
 // register api catalogue
 const exercisesRouter = require("./routes/exercises");
 const usersRouter = require("./routes/users");
+const JWTAuth = require("./JWTAuth");
 
 app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
-
-//TESTING
-const adminSchema = new mongoose.Schema({ name: "string", size: "string" });
-const Admin = new mongoose.model("admins", adminSchema);
-
-app.get("/test", (req, res) => {
-  res.json({
-    message: "Welcome"
-  });
-});
-
-const verifyToken = (req, res, next) => {
-  //Grab bearer from header
-  const bearerHeader = req.headers["authorization"];
-  if (typeof bearerHeader !== "undefined") {
-    //Split bearer
-    const bearer = bearerHeader.split(" ");
-    //Grab just the token from the array
-    const bearerToken = bearer[1];
-    //Set the request token as the extracted token
-    req.token = bearerToken;
-    next();
-  } else {
-    //Forbidden
-    res.sendStatus(403);
-  }
-};
-
-app.post("/api/posts", verifyToken, (req, res) => {
-  jwt.verify(req.token, process.env.JWT_KEY, (err, authData) => {
-    if (err) return res.sendStatus(403);
-    res.json({
-      message: "Post created",
-      authData
-    });
-  });
-});
-
-app.post("/api/login", (req, res) => {
-  let adminFound = false;
-  let adminData = {};
-  console.log(req.body);
-  Admin.find({ username: req.body.username, password: req.body.password }, (err, data) => {
-    console.log(data);
-    if (err) return console.log(err);
-    if (data.length !== 0) {
-      console.log(2);
-      adminFound = true;
-      adminData = { data };
-      console.log(data);
-    } else {
-      res.json({adminFound});
-    }
-    if (adminFound === true) {
-      console.log(3);
-      jwt.sign({ adminData }, process.env.JWT_KEY, (err, token) => {
-        console.log(4);
-        return res.json({ token });
-      });
-    };
-  });
-
-  // res.end(); 
-
-});
-
-
-//TESTING
+app.use("/api", JWTAuth.router);
 
 // Creating live connection to reactjs app
 // Define any API routes before this runs
