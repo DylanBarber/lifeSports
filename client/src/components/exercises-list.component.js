@@ -80,7 +80,7 @@ findExerciseUser(username) {
   }
 
   // onSubmit function for finding a specific user
-  onSubmit = (e) => {
+  submitSearch = (e) => {
     e.preventDefault();
 
     const user = this.state.username;
@@ -100,8 +100,11 @@ findExerciseUser(username) {
     return (
       <div>
         <h3 className="exercises">Logged Exercises</h3>
-        <input className="searchInput" type="text" placeholder="Search for a name..." />
-        <button type="submit">Search</button>
+        <form onSubmit={this.submitSearch}>
+          <input className="searchInput" type="text" placeholder="Search for a name..." onChange={this.onChangeUsername}/>
+          <button type="submit">Search</button>
+          <input type="button" value="All" onClick={this.getAllUsers} />
+        </form>
         <table className="table">
           <thead className="thead-light">
             <tr>
