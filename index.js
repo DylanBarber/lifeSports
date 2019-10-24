@@ -8,6 +8,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const jwt = require("jsonwebtoken");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -16,6 +17,9 @@ let uri = "";
 // register middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // Serve up static assets (heroku)
 if (process.env.NODE_ENV === "production") {
@@ -29,7 +33,8 @@ if (process.env.NODE_ENV === "production") {
 mongoose.connect(uri, {
   useNewUrlParser: true,
   useCreateIndex: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  dbName: "lifeSports"
 }
 );
 const connection = mongoose.connection;
@@ -45,6 +50,9 @@ app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 
 //TESTING
+const adminSchema = new mongoose.Schema({ name: "string", size: "string" });
+const Admin = new mongoose.model("admins", adminSchema);
+
 app.get("/test", (req, res) => {
   res.json({
     message: "Welcome"
@@ -76,20 +84,34 @@ app.post("/api/posts", verifyToken, (req, res) => {
       authData
     });
   });
-
 });
 
 app.post("/api/login", (req, res) => {
-  //Mock user (INSERT DB TEST HERE)
-  const user = {
-    id: 1,
-    username: "test",
-    password: "test"
-  };
-
-  jwt.sign({ user }, process.env.JWT_KEY, (err, token) => {
-    res.json({ token });
+  let adminFound = false;
+  let adminData = {};
+  console.log(req.body);
+  Admin.find({ username: req.body.username, password: req.body.password }, (err, data) => {
+    console.log(data);
+    if (err) return console.log(err);
+    if (data.length !== 0) {
+      console.log(2);
+      adminFound = true;
+      adminData = { data };
+      console.log(data);
+    } else {
+      res.json({adminFound});
+    }
+    if (adminFound === true) {
+      console.log(3);
+      jwt.sign({ adminData }, process.env.JWT_KEY, (err, token) => {
+        console.log(4);
+        return res.json({ token });
+      });
+    };
   });
+
+  // res.end(); 
+
 });
 
 
