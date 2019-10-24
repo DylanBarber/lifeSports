@@ -45,9 +45,6 @@ app.use("/exercises", exercisesRouter);
 app.use("/users", usersRouter);
 
 //TESTING
-let Admin = require("./models/admin.model");
-
-
 app.get("/test", (req, res) => {
   res.json({
     message: "Welcome"
@@ -82,20 +79,17 @@ app.post("/api/posts", verifyToken, (req, res) => {
 
 });
 
-app.post("/api/login", async (req, res) => {
-  let admin = new Admin({username: req.body.username, password: req.body.password});
-  admin = await Admin.find(); 
-  console.log(admin);
+app.post("/api/login", (req, res) => {
   //Mock user (INSERT DB TEST HERE)
-  // const user = {
-  //   id: 1,
-  //   username: "test",
-  //   password: "test"
-  // };
+  const user = {
+    id: 1,
+    username: "test",
+    password: "test"
+  };
 
-  // jwt.sign({ user }, process.env.JWT_KEY, (err, token) => {
-  //   res.json({ token });
-  // });
+  jwt.sign({ user }, process.env.JWT_KEY, (err, token) => {
+    res.json({ token });
+  });
 });
 
 
