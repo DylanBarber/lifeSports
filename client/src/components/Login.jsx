@@ -6,8 +6,6 @@ class Login extends React.Component {
   state = {
     username: "",
     password: "",
-    token: "",
-    loginContent: ""
   };
   usernameOnChange = e => {
     this.setState({ username: e.target.value });
