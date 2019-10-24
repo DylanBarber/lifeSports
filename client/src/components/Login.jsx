@@ -1,12 +1,11 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-
 class Login extends React.Component {
   port = process.env.PORT || 5000;
   state = {
     username: "",
-    password: ""
+    password: "",
   };
   usernameOnChange = e => {
     this.setState({ username: e.target.value });
@@ -52,4 +51,4 @@ class Login extends React.Component {
   }
 };
 
-export default Login; 
+export default Login;
