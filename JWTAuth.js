@@ -16,11 +16,13 @@ const verifyToken = (req, res, next) => {
     //Set the request token as the extracted token
     req.token = bearerToken;
     jwt.verify(req.token, process.env.JWT_KEY, (err) => {
+
       if (err) return res.sendStatus(403);
       next();
     });
   } else {
     //Forbidden
+    console.log(req.token);
     res.sendStatus(403);
   }
 };

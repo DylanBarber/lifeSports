@@ -76,7 +76,6 @@ export default class EditExercise extends Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
-
     const exercise = {
       username: this.state.username,
       description: this.state.description,
@@ -84,15 +83,15 @@ export default class EditExercise extends Component {
       date: this.state.date
     };
     const token = localStorage.getItem("token");
-    fetch(`exercises/update/${this.props.match.params.id}`, {
-      method: "POST",
+    fetch(`/exercises/update/${this.props.match.params.id}`, {
+      method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(exercise)
     });
-    window.location = "/";
+    // window.location = "/";
   }
 
   render() {
