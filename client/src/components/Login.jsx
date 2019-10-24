@@ -46,9 +46,9 @@ class Login extends React.Component {
       <div className="container">
         <div className="loginContainer">
           <h2>Username</h2>
-          <input onChange={this.usernameOnChange} />
+          <input onChange={this.usernameOnChange} placeholder="Username" />
           <h2>Password</h2>
-          <input onChange={this.passwordOnChange} />
+          <input onChange={this.passwordOnChange} placeholder="Password" />
           <button onClick={this.loginHandler}>Login</button>
           {errorOrRedirect}
 

@@ -23,6 +23,16 @@
   color: #61dafb;
 }
 
+input {
+  border-top: 0px;
+  border-right: 0px;
+  border-bottom: 2px solid grey;
+  border-left: 0px;
+  width: 90%;
+  margin: 15px;
+  background-color: whitesmoke;
+}
+
 .container {
   background-color: whitesmoke;
   min-height: 100vh;
@@ -33,9 +43,18 @@
 }
 
 /* create user */
+.createUserContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.createUserForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .user{
   text-align: center;
-  padding-top: 210px;
 }
 
 .form-group{
@@ -47,6 +66,7 @@
 
 .form-control{
   text-align: center;
+  width: 100%;
 }
 
 /* exercise list */
@@ -55,6 +75,30 @@
   padding-top: 50px;
 }
 
+.createExerciseContainer{
+  display: flex;
+  flex-direction: column;
+}
+.createExerciseForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.createExerciseInput{
+  width: 60%;
+}
+.userSelection{
+  width: 30%;
+}
+.submitLog{
+  width: 40%;
+}
+.exerciseDescription{
+  padding-top: 20px;
+}
 /* .searchInput{
   margin: 0 auto;
   text-align: center;
