@@ -19,7 +19,7 @@ export default class CreateUser extends Component {
     });
   }
 
-  onSubmit(e) {
+  onSubmit = async (e) => {
     e.preventDefault();
 
     const user = {
@@ -27,9 +27,15 @@ export default class CreateUser extends Component {
     };
 
     console.log(user);
-
-    axios.post("/users/add", user)
-      .then(res => console.log(res.data));
+    const token = localStorage.getItem("token");
+    await fetch("/users/add", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    });
 
     this.setState({
       username: ""
