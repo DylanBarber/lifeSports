@@ -2,7 +2,6 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 class Login extends React.Component {
-  port = process.env.PORT || 5000;
   state = {
     username: "",
     password: "",
@@ -15,7 +14,8 @@ class Login extends React.Component {
     this.setState({ password: e.target.value });
   };
   loginHandler = async () => {
-    const fetchData = await fetch("/api/login", {
+    const port = process.env.PORT || 5000;
+    const fetchData = await fetch(`http://localhost:${port}/api/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
