@@ -27,10 +27,11 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-router.post("/login", async (req, res) => {
+router.post("/login", (req, res) => {
   let adminFound = false;
   let adminData = {};
-  await Admin.find({ username: req.body.username, password: req.body.password }, (err, data) => {
+  Admin.find({ username: req.body.username, password: req.body.password }, (err, data) => {
+    if (err) return res.status(500).send(err);
     if (data.length !== 0) {
       adminFound = true;
       adminData = { data };
@@ -39,6 +40,7 @@ router.post("/login", async (req, res) => {
     }
     if (adminFound === true) {
       jwt.sign({ adminData }, process.env.JWT_KEY, (err, token) => {
+        if (err) return res.status(500).send(err);
         return res.json({ token });
       });
     };
