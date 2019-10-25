@@ -15,7 +15,7 @@ class Login extends React.Component {
   };
   loginHandler = async () => {
     const port = process.env.PORT || 5000;
-    const fetchData = await fetch(`http://localhost:${port}/api/login`, {
+    const fetchData = await fetch("wss://lifesportswebsite.herokuapp.com//api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
