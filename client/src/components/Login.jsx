@@ -15,7 +15,7 @@ class Login extends React.Component {
     this.setState({ password: e.target.value });
   };
   loginHandler = async () => {
-    const fetchData = await fetch(`http://localhost:${this.port}/api/login`, {
+    const fetchData = await fetch("/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
