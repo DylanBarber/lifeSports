@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>About Me</title>
+  </head>
+  <body>
+      <header role="banner">
+        <nav role="navigation" class="navbar navbar-expand-lg fixed-top">
+            <button class="navbar-toggler " type="button" data-toggler="collapse" data-target="navagation-bar" onclick="myFunction()">
+                <span class="navbar-toggler-icon">&#9776;</span>
+            </button>
+    <div class="collapse navbar-collapse" id="navigation-bar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="index.html">About Me</a></li>
+            <li class="nav-item"> <a class="nav-link" href="portfolio.html">Portfolio</a></li>
+            <li class="nav-item"> <a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+        </nav>
+    </header>
+    <h1>AJ <span>Blocker</span></h1>
+    <img src="./images/me.jpg" width= 250 height= 200 class="me">
+    <p class="about">My name is AJ Blocker, I'm a Back-End Developer from Charlotte, NC who majored in Graphic Design and Computer Science.
+    I decided to take on challenges by joining the Road to Hire Academy where I now specialize in HTML, CSS, Javascript, React, NodeJS, MySQL, MongoDB, MongoDB Atlas & C#.
+    In my down time I enjoy playing video games and spend time planning to travel around the world.</p>
+
+    <div class="skills">
+        <img src="https://img.icons8.com/ios-filled/50/000000/html-5.png" alt="html logo">
+        <img src="https://img.icons8.com/ios-filled/50/000000/css3.png" alt="css logo">
+        <img src="https://img.icons8.com/ios-filled/50/000000/javascript-logo.png" alt="javascript logo">
+        <img src="https://img.icons8.com/dotty/50/000000/react.png" alt="react logo">
+        <img src="https://img.icons8.com/windows/50/000000/nodejs.png" alt="nodejs logo">
+        <img src="https://img.icons8.com/ios-filled/50/000000/mysql-logo.png" alt="mysql logo">
+        <img src="https://img.icons8.com/color/50/000000/mongodb.png" alt="mongodb logo">
+        <img src="https://img.icons8.com/ios-filled/50/000000/c-plus-plus-logo.png" alt="c# logo">
+    </div>
+
+    <div class="interests">
+        <img src="https://img.icons8.com/metro/52/000000/globe.png" alt="globe">
+    </div>
+    <!--footer-->
+    <footer role="contentinfo">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8 col-sm-6">
+                <ul class="list-inline">
+                <li class="list-inline-item"><a href="https://github.com/ajblocker"><img src="https://img.icons8.com/metro/26/000000/github.png" alt="GitHub black and grey cat logo"></a></li>
+                <li class="list-inline-item"><a href="https://www.linkedin.com/in/aj-blocker/"><img src="https://img.icons8.com/metro/26/000000/linkedin.png" alt="LinkedIn black and grey logo"></a></li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <p>&copy; 2019 Designed by AJ Blocker</p>
+            <p>Last updated <span id="demo"></span>.</p>
+        </div>
+    </footer>
+        <!--end footer-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("navigation-bar");
+            x.classList.toggle('collapse')
+        }
+    </script>
+    <script>
+        document.getElementById("demo").innerHTML = document.lastModified;
+        </script>
+  </body>
+</html>

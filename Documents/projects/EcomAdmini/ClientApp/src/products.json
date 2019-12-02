@@ -1,0 +1,133 @@
+[{
+    "name":"HUF Alameda Striped T-Shirt",
+    "price":35,
+    "description":"This rad tee has a classic everyday construction, bold multicolor stripes all over, and an embroidered HUF logo at the left chest.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dwffe516c2/product_images/0097503380408NEW_00_054.jpg?sw=690&sh=1070&sm=fit",
+    "type": "t-shirt"
+},
+{
+    "name":"Guess Script Long Sleeve T-Shirt",
+    "price":44,
+    "description":"Exclusive! The Script Long Sleeve T-Shirt has a classic everyday construction and a retro-inspired brand graphic on the front.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw5c1de4ad/product_images/0103513380014NEW_00_075.jpg?sw=690&sh=1070&sm=fit",
+    "type": "t-shirt"
+},
+{
+    "name":"Champion Reverse Weave Chenille Script Pullover Hoodie",
+    "price":65,
+    "description":"Sport some signature Champion style this season with the Reverse Weave Chenille Script Pullover Hoodie. This go-to layer has a classic hoodie design with an embroidered Champion logo across the chest.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw28a94de8/product_images/0190499380058NEW_00_060.jpg?sw=690&sh=1070&sm=fit",
+    "type": "hoodie"
+},
+{
+    "name":"PacSun Light Stitch & Repair Stacked Skinny Jeans",
+    "price":59.95,
+    "description":"The Light Stitch & Repair Stacked Skinny Jeans have a traditional 5-pocket design, a versatile light wash, a long extended hem, ripped detailing with frayed edges, and our durable Comfort Stretch fabrication for everyday motion.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw5beade43/product_images/0132242100067NEW_00_510.jpg?sw=690&sh=1070&sm=fit",
+    "type": "jeans"
+},
+{
+    "name":"Guess Pomona Stripe T-Shirt",
+    "price":27.30,
+    "description":"This ultra-cool tee features short sleeves, crew neckline, logo embroidery at the chest, and a relaxed fit.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw51af07ff/product_images/0702513380045NEW_01_108.jpg?sw=458&sh=710&sm=fit",
+    "type": "t-shirt"
+},
+{
+    "name":"Adidas Adicolor Black Cropped Tank Top",
+    "price":21.00,
+    "description":"The Adicolor Black Cropped Tank Top by adidas is gym-ready whenever you are. It features a ribbed crew neckline, a sleeveless design, iconic 3-Stripes at the sides, small Trefoil embroidery at the chest, and a cropped fit.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw7e497b03/product_images/0702000250229NEW_01_001.jpg?sw=690&sh=1070&sm=fit",
+    "type": "tops"
+},
+{
+    "name":"Valfre Estrella Turtleneck Bodysuit",
+    "price":42,
+    "description":"Calling all cosmic girls. This black turtleneck bodysuit features a cosmic star pattern.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw9740ffad/product_images/0712525050002NEW_00_001.jpg?sw=690&sh=1070&sm=fit",
+    "type": "suit"
+},
+{
+    "name":"John Galt Plaid Cara Skirt",
+    "price":26,
+    "description":"Complete your preppy style with the Plaid Cara Skirt by John Galt. Available in a plaid print, this mini skirt is complete with a high-rise fit, back zipper closure, and two front slits.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dwcf19cac7/product_images/0840454500080NEW_00_547.jpg?sw=690&sh=1070&sm=fit",
+    "type": "skirt"
+},
+{
+    "name":"Civil Echos Tie-Dyed T-Shirt",
+    "price":32,
+    "description":"Grab a fresh take on Civil's street-inspired style with the Echos Tie-Dyed T-Shirt. This new tee has a classic construction with reimagined brand graphics and a cool tie-dyed fabric",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dwfae58d91/product_images/0097460120183NEW_00_673.jpg?sw=690&sh=1070&sm=fit",
+    "type": "t-shirt"
+},
+{
+    "name":"Naruto T-Shirt",
+    "price":17.50,
+    "description":"PacSun keeps the throwback vibes coming with the Naruto T-Shirt. This novelty tee has a crew neck, short sleeves, and Naruto graphics on the front and back.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dwef65c45d/product_images/0097432810077NEW_00_001.jpg?sw=690&sh=1070&sm=fit",
+    "type": "t-shirt"
+},
+{
+    "name":"Air Jordan 1 Retro High OG Bred",
+    "price":240,
+    "description":"Leather upper with the legendary Air Jordan wings logo on the side. Padded collar for extra comfort.",
+    "image":"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTbLQQt7AKnQUoXHvw3Mrnnt862dFxlUUIrgetWZ5PBzIIddGSHHIhm5h98urA7p6TbPNoYFJ3QvEqznQmnnznHDjyyPIX0mUfZAkYctGN0fzRVPG-nSxGgGg&usqp=CAE",
+    "type": "shoes"
+},
+{
+    "name":"Air Jordan 1 Retro High OG 'Shadow' 2018",
+    "price":225,
+    "description":"Leather upper with padded collar for comfort. EVA midsole for cushioning. Encapsulated Air-Sole unit in the heel. Solid rubber cupsole with deep flex groves, concentric traction pattern.",
+    "image":"https://www.flightclub.com/media/catalog/product/cache/1/image/1600x1140/9df78eab33525d08d6e5fb8d27136e95/8/0/803598_01.jpg",
+    "type": "shoes"
+},
+{
+    "name":"Vans White Old Skool Shoes",
+    "price":60,
+    "description":"Showcase Vans' signature style on your deck with the Old Skool Shoes. These sweet sneakers have a sturdy canvas upper, reinforced toecaps to withstand repeated wear, and the brand's signature rubber waffle outsole.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dwa5d1f88d/product_images/0530037910212NEW_00_010.jpg?sw=690&sh=1070&sm=fit",
+    "type": "shoes"
+},
+{
+    "name":"The North Face Blue & Black Base Camp II Slide Sandals",
+    "price":35,
+    "description":"The Blue & Black Base Camp II Slide Sandals have contoured footbeds, textured outsoles, and a thick single strap with bold The North Face branding.",
+    "image":"https://www.pacsun.com/dw/image/v2/AAJE_PRD/on/demandware.static/-/Sites-pacsun_storefront_catalog/default/dw4a613ee6/product_images/0518519500002NEW_00_863.jpg?sw=690&sh=1070&sm=fit",
+    "type": "shoes"
+},
+{
+    "name":"Bape BackPack",
+    "price":130,
+    "description":"Authentic Bape Backpack",
+    "image":"https://di2ponv0v5otw.cloudfront.net/posts/2018/03/29/5abd785ba4c4857a85230efc/m_5abd79af9a9455964460a78e.jpg",
+    "type": "accessories"
+},
+{
+    "name":"PATEK PHILIPPE GRAND COMPLICATIONS 41MM, 18K ROSE GOLD AND ALLIGATOR",
+    "price":349,
+    "description":"This manually-wound watch features day, month, leap year and day or night indicators as well as a seconds subdial.",
+    "image":"https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1559833549-patek-philippe-grand-complications-silver-dial-18k-rose-gold-1559833533.jpg?crop=0.7333333333333334xw:1xh;center,top&resize=480:*",
+    "type": "accessories"
+},
+{
+    "name":"Blaze Clubmaster Lens-Over-Frame Sunglasses, Black/Gold",
+    "price":173,
+    "description":"High on style, Ray-Ban sunglasses are also lauded for impressive quality and sun protection.",
+    "image":"https://a248.e.akamai.net/f/248/9086/1.ccd/origin-d3.scene7.com/is/image/LuxotticaRetail/805289653653_shad_qt?$pngAlpha$",
+    "type": "accessories"
+},
+{
+    "name":"Kermit Supreme Skateboard",
+    "price":250,
+    "description":"The Kermit T-shirt is one of the brand’s most sought-after celebrity tees, so it makes sense that the matching board has become one of Supreme’s best.",
+    "image":"https://static.highsnobiety.com/thumbor/85xfd0GhUNBoClNge3ZZYjrzbWk=/fit-in/800x1001/smart/static.highsnobiety.com/wp-content/uploads/2018/04/30111809/supreme-skateboard-decks-9.jpg",
+    "type": "skateboard"
+},
+{
+    "name":"APO Selekta 156cm Snowboard",
+    "price":279.99,
+    "description":"A freestyle jib monster thanks to a new lightweight Fusion Laminates construction with a PH Bounce Core for lightweight and flexible pop.",
+    "image":"https://scene7.zumiez.com/is/image/zumiez/pdp_hero/APO-Selekta-156cm-Snowboard-_233153-front.jpg",
+    "type": "snowboard"
+}]
